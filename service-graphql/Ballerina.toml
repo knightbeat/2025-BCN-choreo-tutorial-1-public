@@ -1,5 +1,5 @@
 [package]
-org = "dushan"
+org = "wso2con"
 name = "service_graphql"
 version = "0.1.0"
 distribution = "2201.8.5"
