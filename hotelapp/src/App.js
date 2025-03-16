@@ -1,15 +1,28 @@
-import logo from './logo.svg';
+// src/App.js
+
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import Routes
+import RoomBooking from './components/RoomBooking';
+import Reservation from './components/Reservation';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [selectedRoom, setSelectedRoom] = useState(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-      <button onClick={() => {window.location.href="/auth/login"}}>Login</button>
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
-    </div>
+    <Router>
+      <Routes> {/* Replace Switch with Routes */}
+        <Route
+          path="/"
+          element={<RoomBooking setSelectedRoom={setSelectedRoom} />} // Use element prop instead of render
+        />
+        <Route
+          path="/reservation"
+          element={<Reservation selectedRoom={selectedRoom} setSelectedRoom={setSelectedRoom} />} // Use element prop instead of render
+        />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
